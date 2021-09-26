@@ -2,8 +2,7 @@
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-// Reducers
-// Types
+import authReducer from './auth/auth.reducers';
 import { RootAction } from './root-types';
 
 const persistConfig = {
@@ -11,7 +10,9 @@ const persistConfig = {
   storage,
 };
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  auth: authReducer,
+});
 
 export type RootState = ReturnType<typeof rootReducer>;
 export default persistReducer<RootState, RootAction>(

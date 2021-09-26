@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import Copyright from '../components/copyright/copyright.component'
+import Copyright from '../components/copyright/copyright.component';
 
 interface LoginProps {}
 

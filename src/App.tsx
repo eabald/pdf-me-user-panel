@@ -6,12 +6,13 @@ import { persistor } from './redux/store';
 import { ThemeProvider } from '@mui/material/styles';
 import MainTheme from './themes/main.theme';
 import Router from './router';
+import PageLoader from './components/page-loader/page-loader.component';
 
 function App() {
   return (
-    <PersistGate loading={'Loading...'} persistor={persistor}>
+    <PersistGate loading={<PageLoader />} persistor={persistor}>
       <ThemeProvider theme={MainTheme}>
-        <Suspense fallback={'Loading...'}>
+        <Suspense fallback={<PageLoader />}>
           <DomRouter history={history}>
             <Router />
           </DomRouter>
