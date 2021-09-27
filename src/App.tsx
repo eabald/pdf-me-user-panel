@@ -7,13 +7,17 @@ import { ThemeProvider } from '@mui/material/styles';
 import MainTheme from './themes/main.theme';
 import Router from './router';
 import PageLoader from './components/page-loader/page-loader.component';
+import { useSelector } from 'react-redux';
+import { RootState } from './redux/root-reducer';
 
 function App() {
+  const loading = useSelector((state: RootState) => state.utils.loading);
   return (
     <PersistGate loading={<PageLoader />} persistor={persistor}>
       <ThemeProvider theme={MainTheme}>
         <Suspense fallback={<PageLoader />}>
           <DomRouter history={history}>
+            {loading ? <PageLoader /> : ''}
             <Router />
           </DomRouter>
         </Suspense>
