@@ -25,7 +25,7 @@ export interface SignInErrorAction extends Action {
 }
 
 export interface Credentials {
-  username: string;
+  email: string;
   password: string;
 }
 

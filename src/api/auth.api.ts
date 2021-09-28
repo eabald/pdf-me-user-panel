@@ -13,8 +13,8 @@ interface UserResponse extends AxiosResponse {
 export async function signInRequest(
   credentials: Credentials
 ): Promise<UserResponse> {
-  const response = await axios.post('http:localhost:5000/auth/login', credentials, {
-    withCredentials: true,
+  const response = await axios.post('http://localhost:5000/auth/log-in', credentials, {
+    withCredentials: false,
   });
   return response.data
 }

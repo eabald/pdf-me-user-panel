@@ -1,5 +1,5 @@
 // External
-import { takeLatest, all, put } from 'redux-saga/effects';
+import { takeLatest, all, put, call } from 'redux-saga/effects';
 // Types
 import {
   SIGN_IN_START,
@@ -11,12 +11,13 @@ import { signInRequest } from '../../api/auth.api';
 // Actions
 import { signInSuccess, signInError } from './auth.actions';
 import { updateLoading } from '../utils/utils.actions';
+import { setUserData } from '../user/user.actions';
 
 export function* signIn({ payload }: SignInStartAction): any {
   try {
     yield put(updateLoading(true));
     const user = yield signInRequest(payload);
-    console.log(user);
+    yield put(setUserData(user));
     yield put(signInSuccess());
     yield put(updateLoading(false));
   } catch (error) {
@@ -30,7 +31,9 @@ export function* onSignInStart() {
 }
 
 export function* authSagas() {
-  yield all([]);
+  yield all([
+    call(onSignInStart)
+  ]);
 }
 
 export default authSagas;
