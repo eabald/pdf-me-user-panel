@@ -18,21 +18,21 @@ const Router: React.FC<RouterProps> = () => {
     <Switch>
       {loggedIn ? (
         <>
+          <Route path="/logout" component={LoggedOut} />
           <Route path="/login">
             <Redirect to="/" />
           </Route>
           <Route path="/register">
             <Redirect to="/" />
           </Route>
-          <Route path="/logout">
-            <Redirect to="/login" />
-          </Route>
           <Route path="/" component={Dashboard} />
         </>
       ) : (
         <>
           <Route path="/login" component={Login} />
-          <Route path="/logout" component={LoggedOut} />
+          <Route path="/logout" >
+            <Redirect to="/login" />
+          </Route>
           <Route path="/register" component={Register} />
           <Route path="/dashboard">
             <Redirect to="/login" />
