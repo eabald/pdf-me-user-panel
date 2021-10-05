@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth.reducer';
-import utilsReducer from './utils/utils.reducer';
-import userReducer from './user/user.reducer';
+import utilsReducer from './utils/utils.slice';
+import userReducer from './user/user.slice';
 import { RootAction } from './root-types';
 
 const persistConfig = {
