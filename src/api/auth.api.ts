@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { Credentials } from '../redux/auth/auth.types';
+import { Credentials } from '../redux/auth/auth.slice';
 
 interface UserResponse extends AxiosResponse {
   id: number;

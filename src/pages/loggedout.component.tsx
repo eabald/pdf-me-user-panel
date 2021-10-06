@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { signOutStart } from '../redux/auth/auth.actions';
+import { signOutStart } from '../redux/auth/auth.slice';
 
 interface LoggedOutProps {}
 

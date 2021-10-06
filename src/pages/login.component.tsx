@@ -7,7 +7,7 @@ import Copyright from '../components/copyright/copyright.component';
 import { useFormik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { signInStart } from '../redux/auth/auth.actions';
+import { signInStart } from '../redux/auth/auth.slice';
 
 interface LoginProps {}
 
