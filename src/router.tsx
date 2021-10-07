@@ -30,9 +30,7 @@ const Router: React.FC<RouterProps> = () => {
       ) : (
         <>
           <Route path="/login" component={Login} />
-          <Route path="/logout" >
-            <Redirect to="/login" />
-          </Route>
+          <Route path="/logout" component={LoggedOut} />
           <Route path="/register" component={Register} />
           <Route path="/dashboard">
             <Redirect to="/login" />
