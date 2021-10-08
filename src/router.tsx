@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 import { RootState } from './redux/root-reducer';
 
 // Components
-const Dashboard = lazy(() => import('./pages/dashboard.component'));
-const LoggedOut = lazy(() => import('./pages/loggedout.component'));
-const Login = lazy(() => import('./pages/login.component'));
-const Register = lazy(() => import('./pages/register.component'));
+const Dashboard = lazy(() => import('./components/dashboard-page/dashboard.component'));
+const LoggedOut = lazy(() => import('./components/loggedout-page/loggedout.component'));
+const Login = lazy(() => import('./components/login-page/login.component'));
+const Register = lazy(() => import('./components/register-page/register.component'));
 
 type RouterProps = {};
 

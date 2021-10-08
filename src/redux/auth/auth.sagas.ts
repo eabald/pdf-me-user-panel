@@ -1,7 +1,7 @@
 // External
 import { takeLatest, all, put, call } from 'redux-saga/effects';
 // Api
-import { signInRequest, signOutRequest } from '../../api/auth.api';
+import { signInRequest, signOutRequest } from './auth.api';
 // Actions
 import {
   signInSuccess,

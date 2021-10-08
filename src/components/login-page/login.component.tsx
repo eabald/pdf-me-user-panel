@@ -1,13 +1,13 @@
 import React from 'react';
-import PageWrapper from '../components/page-wrapper/page-wrapper.component';
+import PageWrapper from '../page-wrapper/page-wrapper.component';
 import { Box, Avatar, Button, TextField, Link, Grid } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import Copyright from '../components/copyright/copyright.component';
+import Copyright from '../shared/copyright/copyright.component';
 import { useFormik, FormikHelpers } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { signInStart } from '../redux/auth/auth.slice';
+import { signInStart } from '../../redux/auth/auth.slice';
 
 interface LoginProps {}
 

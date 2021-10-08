@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { signOutStart } from '../redux/auth/auth.slice';
+import { signOutStart } from '../../redux/auth/auth.slice';
 import { Box, Container, Typography, Link } from '@mui/material';
-import PageWrapper from '../components/page-wrapper/page-wrapper.component';
+import PageWrapper from '../page-wrapper/page-wrapper.component';
 
 interface LoggedOutProps {}
 
