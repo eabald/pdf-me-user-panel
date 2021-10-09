@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { Credentials } from './auth.slice';
+import { Credentials, SignUpCredentials } from './auth.slice';
 
 interface UserResponse extends AxiosResponse {
   id: number;
@@ -17,6 +17,15 @@ export async function signInRequest(
     withCredentials: true,
   });
   return response.data
+}
+
+export async function SignUpRequest(
+  signUpCredentials: SignUpCredentials
+): Promise<UserResponse> {
+  const response = await axios.post('/auth/register', signUpCredentials, {
+    withCredentials: true,
+  })
+  return response.data;
 }
 
 export async function signOutRequest(): Promise<void> {

@@ -1,7 +1,7 @@
 // External
 import { takeLatest, all, put, call } from 'redux-saga/effects';
 // Api
-import { signInRequest, signOutRequest } from './auth.api';
+import { signInRequest, signOutRequest, SignUpRequest } from './auth.api';
 // Actions
 import {
   signInSuccess,
@@ -11,13 +11,14 @@ import {
   SIGN_IN_START,
   SIGN_OUT_START,
   AuthError,
-  Credentials,
   SignInStartAction,
+  SignUpStartAction,
+  SIGN_UP_START,
 } from './auth.slice';
 import { updateLoading } from '../utils/utils.actions';
 import { setUserData } from '../user/user.slice';
 
-export function* signIn({ payload }: { payload: Credentials }): any {
+function* signIn({ payload }: SignInStartAction): any {
   try {
     yield put(updateLoading(true));
     const user = yield signInRequest(payload);
@@ -30,7 +31,7 @@ export function* signIn({ payload }: { payload: Credentials }): any {
   }
 }
 
-export function* signOut(): any {
+function* signOut(): any {
   try {
     yield put(updateLoading(true));
     yield signOutRequest();
@@ -43,16 +44,33 @@ export function* signOut(): any {
   }
 }
 
-export function* onSignInStart() {
+function* signUp({ payload }: SignUpStartAction): any {
+  try {
+    yield put(updateLoading(true));
+    const user = yield SignUpRequest(payload);
+    yield put(setUserData(user));
+    yield put(signInSuccess(true));
+    yield put(updateLoading(false));
+  } catch (error) {
+    yield put(signInError(error as AuthError));
+    yield put(updateLoading(false));
+  }
+}
+
+function* onSignInStart() {
   yield takeLatest<SignInStartAction>(SIGN_IN_START, signIn);
 }
 
-export function* onSignOutStart() {
+function* onSignUpStart() {
+  yield takeLatest<SignUpStartAction>(SIGN_UP_START, signUp);
+}
+
+function* onSignOutStart() {
   yield takeLatest(SIGN_OUT_START, signOut);
 }
 
-export function* authSagas() {
-  yield all([call(onSignInStart), call(onSignOutStart)]);
+function* authSagas() {
+  yield all([call(onSignInStart), call(onSignOutStart), call(onSignUpStart)]);
 }
 
 export default authSagas;

@@ -1,6 +1,7 @@
 import React from 'react';
-import PageWrapper from '../page-wrapper/page-wrapper.component';
+import PageWrapper from '../shared/page-wrapper/page-wrapper.component';
 import { Box, Avatar, Button, TextField, Link, Grid } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Copyright from '../shared/copyright/copyright.component';
@@ -98,12 +99,12 @@ const Login: React.FC<LoginProps> = () => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link component={RouterLink} to="/forgot-password" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link component={RouterLink} to="/register" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

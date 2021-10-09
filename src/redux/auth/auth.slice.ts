@@ -17,6 +17,10 @@ export interface Credentials {
   password: string;
 }
 
+export interface SignUpCredentials extends Credentials {
+  name: string;
+}
+
 const initialState: AuthState = {
   loggedIn: false,
   error: null,
@@ -26,6 +30,14 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    signUpSuccess: (state, action: PayloadAction<boolean>) => {
+      state.loggedIn = action.payload;
+      state.error = null;
+    },
+    signUpError: (state, action: PayloadAction<AuthError>) => {
+      state.loggedIn = false;
+      state.error = action.payload;
+    },
     signInSuccess: (state, action: PayloadAction<boolean>) => {
       state.loggedIn = action.payload;
       state.error = null;
@@ -49,8 +61,14 @@ export interface SignInStartAction extends Action {
   type: typeof SIGN_IN_START;
   payload: Credentials;
 }
-
 export const signInStart = createAction<Credentials>(SIGN_IN_START);
+
+export const SIGN_UP_START = 'SIGN_UP_START';
+export interface SignUpStartAction extends Action {
+  type: typeof SIGN_UP_START;
+  payload: SignUpCredentials;
+}
+export const signUpStart = createAction<SignUpCredentials>(SIGN_UP_START);
 
 export const SIGN_OUT_START = 'SIGN_OUT_START';
 export const signOutStart = createAction(SIGN_OUT_START);

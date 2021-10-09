@@ -9,11 +9,13 @@ import Router from './router';
 import PageLoader from './components/shared/page-loader/page-loader.component';
 import { useSelector } from 'react-redux';
 import { RootState } from './redux/root-reducer';
+import { CssBaseline } from '@mui/material';
 
 function App() {
   const loading = useSelector((state: RootState) => state.utils.loading);
   return (
     <PersistGate loading={<PageLoader />} persistor={persistor}>
+      <CssBaseline />
       <ThemeProvider theme={MainTheme}>
         <Suspense fallback={<PageLoader />}>
           <DomRouter history={history}>

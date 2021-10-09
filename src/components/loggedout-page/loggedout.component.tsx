@@ -3,7 +3,7 @@ import { Link as ReactLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signOutStart } from '../../redux/auth/auth.slice';
 import { Box, Container, Typography, Link } from '@mui/material';
-import PageWrapper from '../page-wrapper/page-wrapper.component';
+import PageWrapper from '../shared/page-wrapper/page-wrapper.component';
 
 interface LoggedOutProps {}
 
