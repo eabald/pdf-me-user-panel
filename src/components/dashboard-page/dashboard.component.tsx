@@ -1,4 +1,5 @@
 import React from 'react'
+import PageWrapper from '../shared/page-wrapper/page-wrapper.component';
 
 interface DashboardProps {
 
@@ -6,9 +7,9 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = () => {
   return (
-    <div>
+    <PageWrapper>
 
-    </div>
+    </PageWrapper>
   )
 }
 
