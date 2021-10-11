@@ -15,7 +15,7 @@ import {
   SignUpStartAction,
   SIGN_UP_START,
 } from './auth.slice';
-import { updateLoading } from '../utils/utils.actions';
+import { updateLoading } from '../utils/utils.slice';
 import { setUserData } from '../user/user.slice';
 
 function* signIn({ payload }: SignInStartAction): any {

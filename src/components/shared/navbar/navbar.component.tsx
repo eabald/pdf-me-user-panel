@@ -8,12 +8,15 @@ import {
   IconButton,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectLoggedIn } from '../../../redux/auth/auth.slice';
+import { toggleShowMenu } from '../../../redux/utils/utils.slice';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const loggedIn = useSelector(selectLoggedIn);
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => dispatch(toggleShowMenu());
   return (
     <Box sx={{ flexGrow: 1, position: 'fixed', top: 0, right: 0, left: 0, zIndex: 1 }}>
       <AppBar position="static">
@@ -25,6 +28,7 @@ const Navbar: React.FC = () => {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
+              onClick={toggleMenuHandler}
             >
               <MenuIcon />
             </IconButton>

@@ -8,7 +8,7 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = () => {
   return (
     <PageWrapper>
-
+      dashboard
     </PageWrapper>
   )
 }
