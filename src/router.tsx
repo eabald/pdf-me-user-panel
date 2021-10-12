@@ -5,10 +5,16 @@ import { useSelector } from 'react-redux';
 import { RootState } from './redux/root-reducer';
 
 // Components
-const Dashboard = lazy(() => import('./components/dashboard-page/dashboard.component'));
-const LoggedOut = lazy(() => import('./components/loggedout-page/loggedout.component'));
+const Dashboard = lazy(
+  () => import('./components/dashboard-page/dashboard.component')
+);
+const LoggedOut = lazy(
+  () => import('./components/loggedout-page/loggedout.component')
+);
 const Login = lazy(() => import('./components/login-page/login.component'));
-const Register = lazy(() => import('./components/register-page/register.component'));
+const Register = lazy(
+  () => import('./components/register-page/register.component')
+);
 
 type RouterProps = {};
 
@@ -22,6 +28,8 @@ const Router: React.FC<RouterProps> = () => {
           <Route path="/login">
             <Redirect to="/" />
           </Route>
+          <Route path="/limits" components={Limits} />
+          <Route path="/templates" components={Templates} />
           <Route path="/register">
             <Redirect to="/" />
           </Route>
@@ -32,6 +40,12 @@ const Router: React.FC<RouterProps> = () => {
           <Route path="/login" component={Login} />
           <Route path="/logout" component={LoggedOut} />
           <Route path="/register" component={Register} />
+          <Route path="/limits">
+            <Redirect to="/login" />
+          </Route>
+          <Route path="/templates">
+            <Redirect to="/login" />
+          </Route>
           <Route path="/dashboard">
             <Redirect to="/login" />
           </Route>
