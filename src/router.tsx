@@ -15,6 +15,8 @@ const Login = lazy(() => import('./components/login-page/login.component'));
 const Register = lazy(
   () => import('./components/register-page/register.component')
 );
+const Limits = lazy(() => import('./components/limits-page/limits.component'));
+const Templates = lazy(() => import('./components/templates-page/templates.component'));
 
 type RouterProps = {};
 
@@ -28,8 +30,8 @@ const Router: React.FC<RouterProps> = () => {
           <Route path="/login">
             <Redirect to="/" />
           </Route>
-          <Route path="/limits" components={Limits} />
-          <Route path="/templates" components={Templates} />
+          <Route path="/limits" component={Limits} />
+          <Route path="/templates" component={Templates} />
           <Route path="/register">
             <Redirect to="/" />
           </Route>
