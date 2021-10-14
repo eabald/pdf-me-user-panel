@@ -16,46 +16,44 @@ const Register = lazy(
   () => import('./components/register-page/register.component')
 );
 const Limits = lazy(() => import('./components/limits-page/limits.component'));
-const Templates = lazy(() => import('./components/templates-page/templates.component'));
+const Templates = lazy(
+  () => import('./components/templates-page/templates.component')
+);
 
 type RouterProps = {};
 
 const Router: React.FC<RouterProps> = () => {
   const loggedIn = useSelector((state: RootState) => state.auth.loggedIn);
-  return (
+  return loggedIn ? (
     <Switch>
-      {loggedIn ? (
-        <>
-          <Route path="/logout" component={LoggedOut} />
-          <Route path="/login">
-            <Redirect to="/" />
-          </Route>
-          <Route path="/limits" component={Limits} />
-          <Route path="/templates" component={Templates} />
-          <Route path="/register">
-            <Redirect to="/" />
-          </Route>
-          <Route path="/" component={Dashboard} />
-        </>
-      ) : (
-        <>
-          <Route path="/login" component={Login} />
-          <Route path="/logout" component={LoggedOut} />
-          <Route path="/register" component={Register} />
-          <Route path="/limits">
-            <Redirect to="/login" />
-          </Route>
-          <Route path="/templates">
-            <Redirect to="/login" />
-          </Route>
-          <Route path="/dashboard">
-            <Redirect to="/login" />
-          </Route>
-          <Route path="/" exact>
-            <Redirect to="/login" />
-          </Route>
-        </>
-      )}
+      <Route path="/logout" component={LoggedOut} />
+      <Route path="/login">
+        <Redirect to="/" />
+      </Route>
+      <Route path="/limits" component={Limits} />
+      <Route path="/templates" component={Templates} />
+      <Route path="/register">
+        <Redirect to="/" />
+      </Route>
+      <Route path="/" component={Dashboard} />
+    </Switch>
+  ) : (
+    <Switch>
+      <Route path="/login" component={Login} />
+      <Route path="/logout" component={LoggedOut} />
+      <Route path="/register" component={Register} />
+      <Route path="/limits">
+        <Redirect to="/login" />
+      </Route>
+      <Route path="/templates">
+        <Redirect to="/login" />
+      </Route>
+      <Route path="/dashboard">
+        <Redirect to="/login" />
+      </Route>
+      <Route path="/" exact>
+        <Redirect to="/login" />
+      </Route>
     </Switch>
   );
 };

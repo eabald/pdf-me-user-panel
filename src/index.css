@@ -1,0 +1,6 @@
+/**
+ * Global override css styles
+ */
+.drawer .MuiDrawer-paperAnchorLeft {
+  margin-top: 65px;
+}
