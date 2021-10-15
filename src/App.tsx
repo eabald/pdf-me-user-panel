@@ -8,11 +8,11 @@ import MainTheme from './themes/main.theme';
 import Router from './router';
 import PageLoader from './components/shared/page-loader/page-loader.component';
 import { useSelector } from 'react-redux';
-import { RootState } from './redux/root-reducer';
 import { CssBaseline } from '@mui/material';
+import { selectLoading } from './redux/utils/utils.slice';
 
 function App() {
-  const loading = useSelector((state: RootState) => state.utils.loading);
+  const loading = useSelector(selectLoading);
   return (
     <PersistGate loading={<PageLoader />} persistor={persistor}>
       <CssBaseline />

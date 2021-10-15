@@ -2,7 +2,7 @@
 import React, { lazy } from 'react';
 import { Route, Switch, Redirect } from 'react-router';
 import { useSelector } from 'react-redux';
-import { RootState } from './redux/root-reducer';
+import { selectLoggedIn } from './redux/auth/auth.slice';
 
 // Components
 const Dashboard = lazy(
@@ -23,7 +23,7 @@ const Templates = lazy(
 type RouterProps = {};
 
 const Router: React.FC<RouterProps> = () => {
-  const loggedIn = useSelector((state: RootState) => state.auth.loggedIn);
+  const loggedIn = useSelector(selectLoggedIn);
   return loggedIn ? (
     <Switch>
       <Route path="/logout" component={LoggedOut} />
