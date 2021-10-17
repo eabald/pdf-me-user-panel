@@ -15,5 +15,5 @@ npm i
 And start service in watch mode:
 
 ```bash
-npm run start:watch
+npm run start
 ```
