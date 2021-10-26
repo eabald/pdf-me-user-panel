@@ -6,7 +6,7 @@ This service is strictly front-end and its responsibility is to allow user to ma
 
 ## Development
 
-To start user pane; in development mode first of all install npm dependencies:
+To start user panel in development mode first of all install npm dependencies:
 
 ```bash
 npm i
