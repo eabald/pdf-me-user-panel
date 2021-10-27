@@ -21,7 +21,8 @@ const LoggedOut: React.FC<LoggedOutProps> = () => {
         history.push('/login');
       }, 5000);
     }
-  }, [dispatch, loggedIn, history]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <PageWrapper>
       <Box
