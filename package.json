@@ -1,9 +1,10 @@
 {
-  "name": "@pdf-me/user-panel",
+  "name": "@eabald/pdf-me-user-panel",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "@eabald/pdf-me-shared": "^0.0.2",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.1",

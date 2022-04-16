@@ -12,7 +12,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => (
     <Navbar />
     <SideMenu />
     <PageWrapperElement>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="lg">
         {children}
       </Container>
     </PageWrapperElement>

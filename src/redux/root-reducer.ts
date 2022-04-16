@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/auth.slice';
 import utilsReducer from './utils/utils.slice';
 import userReducer from './user/user.slice';
+import templatesReducer from './templates/templates.slice'
 import { RootAction } from './root-types';
 
 const persistConfig = {
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   utils: utilsReducer,
   auth: authReducer,
   user: userReducer,
+  templates: templatesReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
